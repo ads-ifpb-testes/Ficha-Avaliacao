@@ -1,12 +1,13 @@
 package view;
 import Model.FichaAvaliacao;
-import Model.FichaAvaliacaoImpl;
+import dao.FichaAvaliacaoDAOImpl;
+
 import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class app {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        FichaAvaliacaoImpl dao = new FichaAvaliacaoImpl();
+        FichaAvaliacaoDAOImpl dao = new FichaAvaliacaoDAOImpl();
 
         FichaAvaliacao paciente1 = new FichaAvaliacao("Raul","Dra Ruthe","Fisioterapeuta","Traumato","111-111-111-11",19,"Masculino","Condomalacia Patelar","Dor constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao paciente2 = new FichaAvaliacao("Pedro","Dra Ruthe","Fisioterapeuta","Traumato","222-222-222-22",22,"Masculino","Rompimento do Tendão","Não Consegue andar","Melhoria no Andar",LocalDate.now());

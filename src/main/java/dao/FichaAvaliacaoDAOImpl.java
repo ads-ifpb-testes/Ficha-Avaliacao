@@ -1,18 +1,19 @@
-package Model;
+package dao;
 
 import Exceptions.CampoVazioException;
 import Exceptions.CpfInvalidoException;
 import Exceptions.DataConsultaException;
+import Model.FichaAvaliacao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FichaAvaliacaoImpl implements FichaAvaliacaoDAO{
+public class FichaAvaliacaoDAOImpl implements FichaAvaliacaoDAO{
 
     private List<FichaAvaliacao> fichas;
 
-    public FichaAvaliacaoImpl(){
+    public FichaAvaliacaoDAOImpl(){
         fichas = new ArrayList<>();
     }
 

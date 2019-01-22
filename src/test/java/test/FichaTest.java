@@ -4,7 +4,8 @@ import Exceptions.CampoVazioException;
 import Exceptions.CpfInvalidoException;
 import Exceptions.DataConsultaException;
 import Model.FichaAvaliacao;
-import Model.FichaAvaliacaoImpl;
+import dao.FichaAvaliacaoDAOImpl;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -15,12 +16,12 @@ import java.time.LocalDate;
 public class FichaTest {
 
     @Mock
-    private FichaAvaliacaoImpl fichaAvaliacaoDAO;
+    private FichaAvaliacaoDAOImpl fichaAvaliacaoDAO;
 
 
     public FichaTest(){
         MockitoAnnotations.initMocks(this);
-        fichaAvaliacaoDAO = new FichaAvaliacaoImpl();
+        fichaAvaliacaoDAO = new FichaAvaliacaoDAOImpl();
     }
 
 

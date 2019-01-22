@@ -1,8 +1,9 @@
-package Model;
+package dao;
 
 import Exceptions.CampoVazioException;
 import Exceptions.CpfInvalidoException;
 import Exceptions.DataConsultaException;
+import Model.FichaAvaliacao;
 
 import java.time.LocalDate;
 import java.util.List;
