@@ -1,2 +1,1 @@
-# Ficha-Avaliacao
-Sistema de Armazenamento de Fichas de Avaliação
+# Sistema de Armazenamento de Fichas de Avaliação
