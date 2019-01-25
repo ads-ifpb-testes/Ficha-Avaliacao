@@ -137,6 +137,9 @@ public class FichaAvaliacaoDAOImpl implements FichaAvaliacaoDAO{
         if (fichaAvaliacao.getCpf().equals(" ")){
             throw new CampoVazioException();
         }
+        if (fichaAvaliacao.getNome() == null || fichaAvaliacao.getNome().equals("")){
+            throw new CampoVazioException();
+        }
         if (fichaAvaliacao.getDataConsulta().isAfter(LocalDate.now())){
             throw new DataConsultaException();
         }
