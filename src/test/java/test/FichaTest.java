@@ -1,11 +1,11 @@
 package test;
 
-import Exceptions.CampoVazioException;
-import Exceptions.CpfInvalidoException;
-import Exceptions.DataConsultaException;
 import Model.FichaAvaliacao;
 import dao.FichaAvaliacaoDAO;
 import dao.FichaAvaliacaoDAOImpl;
+import exceptions.CampoVazioException;
+import exceptions.CpfInvalidoException;
+import exceptions.DataConsultaException;
 
 import org.junit.Assert;
 import org.junit.Before;

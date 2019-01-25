@@ -1,5 +1,7 @@
 package dao;
 
+import Model.Profissional;
+
 public interface ProfissionalDAO {
 	public boolean salvar(Profissional novoProfissional);
 	public Profissional buscar(String nomeProfissional);
