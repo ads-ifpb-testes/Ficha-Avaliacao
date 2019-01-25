@@ -39,8 +39,27 @@ public class FichaTest {
 
     @Test
     public void salvarFicha() throws CampoVazioException, DataConsultaException, CpfInvalidoException {
-//    	CT-0
-        Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichaFake()));
+
+//        Pacientes
+        FichaAvaliacao valido = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
+        FichaAvaliacao fichaRepitida = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
+        FichaAvaliacao nomePacienteVazio = new FichaAvaliacao("","Paulo","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
+        FichaAvaliacao nomeProfissionalVazio = new FichaAvaliacao("Raul","","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
+        FichaAvaliacao cpfVazio = new FichaAvaliacao("Raul","Paulo","Fisioterapeuta","Traumato","",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
+
+
+
+//    	CT-008
+        Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
+//      CT-009
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichaRepitida));
+//      CT-010
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(nomePacienteVazio));
+//      CT-010
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(nomeProfissionalVazio));
+//      CT-010
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(cpfVazio));
+
     }
     
     @Test
