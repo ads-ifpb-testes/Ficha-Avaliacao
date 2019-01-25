@@ -1,11 +1,14 @@
 package test;
 
 import Model.FichaAvaliacao;
+import Model.Profissional;
 import dao.FichaAvaliacaoDAO;
 import dao.FichaAvaliacaoDAOImpl;
-import exceptions.CampoVazioException;
-import exceptions.CpfInvalidoException;
-import exceptions.DataConsultaException;
+import dao.ProfissionalDAO;
+import enumeration.DIA;
+import Exceptions.CampoVazioException;
+import Exceptions.CpfInvalidoException;
+import Exceptions.DataConsultaException;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.List;
 
@@ -24,9 +28,12 @@ public class FichaTest {
 
     private FichaAvaliacaoDAOImpl fichaAvaliacaoDAO;
     private static List<FichaAvaliacao> fichas;
-
+    
+    @Mock
+    private ProfissionalDAO profissionalDAO;
 
     public FichaTest(){
+    	MockitoAnnotations.initMocks(this);
         fichaAvaliacaoDAO = new FichaAvaliacaoDAOImpl();
     }
     
@@ -76,6 +83,12 @@ public class FichaTest {
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(vazio));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(rita));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(flavia));
+    }
+    
+    @Test
+    public void agendarConsulta() {
+//    	CT-022
+    	when(profissionalDAO.buscar("Paulo")).thenReturn(new Profissional("Paulo","034.342.523-24","Medicina","Pediatra",DIA.QUARTA,LocalTime.of(07, 00),LocalTime.of(11, 00)));
     }
 
 }

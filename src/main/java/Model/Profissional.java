@@ -5,22 +5,26 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
+import enumeration.DIA;
+
 public class Profissional {
 
     private String nome;
     private String cpf;
     private String graduacao;
     private String especializacao;
-    private LocalDate dataPrensente;
-    private LocalTime horaPrensente;
+    private DIA diaPresente; 
+    private LocalTime inicioHoraPrensente;
+    private LocalTime fimHoraPrensente;
 
-    public Profissional(String nome, String cpf, String graduacao, String especializacao, LocalDate dataPrensente, LocalTime horaPrensente) {
+    public Profissional(String nome, String cpf, String graduacao, String especializacao, DIA diaPresente, LocalTime inicioHoraPresente,LocalTime fimHoraPresente) {
         this.nome = nome;
         this.cpf = cpf;
         this.graduacao = graduacao;
+        this.diaPresente = diaPresente;
         this.especializacao = especializacao;
-        this.dataPrensente = dataPrensente;
-        this.horaPrensente = horaPrensente;
+        this.inicioHoraPrensente = inicioHoraPresente;
+        this.fimHoraPrensente = fimHoraPresente;
     }
 
     public Profissional() {
@@ -58,23 +62,31 @@ public class Profissional {
         this.especializacao = especializacao;
     }
 
-    public LocalDate getDataPrensente() {
-        return dataPrensente;
-    }
+    public DIA getDiaPresente() {
+		return diaPresente;
+	}
 
-    public void setDataPrensente(LocalDate dataPrensente) {
-        this.dataPrensente = dataPrensente;
-    }
+	public void setDiaPresente(DIA diaPresente) {
+		this.diaPresente = diaPresente;
+	}
 
-    public LocalTime getHoraPrensente() {
-        return horaPrensente;
-    }
+	public LocalTime getInicioHoraPrensente() {
+		return inicioHoraPrensente;
+	}
 
-    public void setHoraPrensente(LocalTime horaPrensente) {
-        this.horaPrensente = horaPrensente;
-    }
+	public void setInicioHoraPrensente(LocalTime inicioHoraPrensente) {
+		this.inicioHoraPrensente = inicioHoraPrensente;
+	}
 
-    @Override
+	public LocalTime getFimHoraPrensente() {
+		return fimHoraPrensente;
+	}
+
+	public void setFimHoraPrensente(LocalTime fimHoraPrensente) {
+		this.fimHoraPrensente = fimHoraPrensente;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -87,16 +99,15 @@ public class Profissional {
         return Objects.hash(cpf);
     }
 
-    @Override
-    public String toString() {
-        return "Profissional{" +
-                "nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", graduacao='" + graduacao + '\'' +
-                ", especializacao='" + especializacao + '\'' +
-                ", dataPrensente=" + dataPrensente +
-                ", horaPrensente=" + horaPrensente +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Profissional [nome=" + nome + ", cpf=" + cpf + ", graduacao=" + graduacao + ", especializacao="
+				+ especializacao + ", diaPresente=" + diaPresente + ", inicioHoraPrensente=" + inicioHoraPrensente
+				+ ", fimHoraPrensente=" + fimHoraPrensente + "]";
+	}
+
+
+    
+    
 
 }
