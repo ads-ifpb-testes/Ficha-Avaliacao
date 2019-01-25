@@ -53,8 +53,8 @@ public class FichaTest {
     	FichaAvaliacao rita = new FichaAvaliacao("Rita","Alfonso","Pediatra","Imunologico","",19,"Feminino","Gripe","","",LocalDate.now());
     	FichaAvaliacao flavia = new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now());
 //    	CT-016
-    	FichaAvaliacao ficha = new FichaAvaliacao("João","Paulo","Fisioterapeuta","Traumato","112.112.112-12",22,"Masculino","Condomalacia Patelar","Não consegue andar","Piora no Andar",LocalDate.now());
-    	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(ficha));
+    	
+    	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
 //    	CT-017
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(carlos));
 //    	CT-018
