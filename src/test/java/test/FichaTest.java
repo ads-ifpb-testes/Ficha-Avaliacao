@@ -39,16 +39,12 @@ public class FichaTest {
 
     @Test
     public void salvarFicha() throws CampoVazioException, DataConsultaException, CpfInvalidoException {
-
 //        Pacientes
         FichaAvaliacao valido = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao fichaRepitida = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao nomePacienteVazio = new FichaAvaliacao("","Paulo","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao nomeProfissionalVazio = new FichaAvaliacao("Raul","","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao cpfVazio = new FichaAvaliacao("Raul","Paulo","Fisioterapeuta","Traumato","",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-
-
-
 //    	CT-008
         Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
 //      CT-009
@@ -72,7 +68,6 @@ public class FichaTest {
     	FichaAvaliacao rita = new FichaAvaliacao("Rita","Alfonso","Pediatra","Imunologico","",19,"Feminino","Gripe","","",LocalDate.now());
     	FichaAvaliacao flavia = new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now());
 //    	CT-016
-    	
     	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
 //    	CT-017
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(carlos));
