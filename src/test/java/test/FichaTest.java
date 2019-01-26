@@ -6,9 +6,9 @@ import dao.FichaAvaliacaoDAO;
 import dao.FichaAvaliacaoDAOImpl;
 import dao.ProfissionalDAO;
 import enumeration.DIA;
-import Exceptions.CampoVazioException;
-import Exceptions.CpfInvalidoException;
-import Exceptions.DataConsultaException;
+import exceptions.CampoVazioException;
+import exceptions.CpfInvalidoException;
+import exceptions.DataConsultaException;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -72,6 +72,15 @@ public class FichaTest {
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(nomeProfissionalVazio));
 //      CT-010
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(cpfVazio));
+
+    }
+
+    @Test
+    public void listarPorNomeProfissional(){
+//        CT-004
+        Assert.assertEquals("Operação Realizada com sucesso","Domingos",fichaAvaliacaoDAO.listarPorNomeDr(fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional()));
+//        CT-005
+        Assert.assertEquals("Falha: Nome do Profissional inválido",6545,fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional());
 
     }
     

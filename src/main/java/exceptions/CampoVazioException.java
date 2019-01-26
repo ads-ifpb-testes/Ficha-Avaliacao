@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class CampoVazioException extends Exception {
     public CampoVazioException (){

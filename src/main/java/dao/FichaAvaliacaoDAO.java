@@ -1,9 +1,12 @@
 package dao;
 
 import Model.FichaAvaliacao;
-import Exceptions.CampoVazioException;
-import Exceptions.CpfInvalidoException;
-import Exceptions.DataConsultaException;
+import exceptions.CampoVazioException;
+import exceptions.CpfInvalidoException;
+import exceptions.DataConsultaException;
+import exceptions.CampoVazioException;
+import exceptions.CpfInvalidoException;
+import exceptions.DataConsultaException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,5 +29,5 @@ public interface FichaAvaliacaoDAO {
 
     public boolean removeByCpf(String cpf);
 
-    public boolean validarFicha(FichaAvaliacao fichaAvaliacao) throws CpfInvalidoException, DataConsultaException, CampoVazioException;
+    public boolean validarFicha(FichaAvaliacao fichaAvaliacao) throws CpfInvalidoException, DataConsultaException, CampoVazioException, CpfInvalidoException, DataConsultaException, CampoVazioException;
 }
