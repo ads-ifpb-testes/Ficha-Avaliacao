@@ -6,9 +6,9 @@ import dao.FichaAvaliacaoDAO;
 import dao.FichaAvaliacaoDAOImpl;
 import dao.ProfissionalDAO;
 import enumeration.DIA;
-import exceptions.CampoVazioException;
-import exceptions.CpfInvalidoException;
-import exceptions.DataConsultaException;
+import Exceptions.CampoVazioException;
+import Exceptions.CpfInvalidoException;
+import Exceptions.DataConsultaException;
 
 import org.junit.Assert;
 import org.junit.Before;

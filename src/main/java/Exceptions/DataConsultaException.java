@@ -1,4 +1,4 @@
-package exceptions;
+package Exceptions;
 
 public class DataConsultaException extends Exception {
     public DataConsultaException(){

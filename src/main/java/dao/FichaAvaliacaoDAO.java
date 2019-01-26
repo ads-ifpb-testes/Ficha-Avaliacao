@@ -1,15 +1,14 @@
 package dao;
 
 import Model.FichaAvaliacao;
-import exceptions.CampoVazioException;
-import exceptions.CpfInvalidoException;
-import exceptions.DataConsultaException;
-import exceptions.CampoVazioException;
-import exceptions.CpfInvalidoException;
-import exceptions.DataConsultaException;
+
 
 import java.time.LocalDate;
 import java.util.List;
+
+import Exceptions.CampoVazioException;
+import Exceptions.CpfInvalidoException;
+import Exceptions.DataConsultaException;
 
 public interface FichaAvaliacaoDAO {
 
