@@ -50,38 +50,44 @@ public class FichaTest {
 //    	4- diagnostico vazio
     	fichasTeste.add(new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now()));
 //    	5- campos preenchidos e CPF INVALIDO
-    	fichasTeste.add(new FichaAvaliacao("Carlos","Pedro","Fisioterapeuta","Traumato","153.181-78",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.of(1955, Month.DECEMBER, 10)));
+        fichasTeste.add(new FichaAvaliacao("Carlos","Pedro","Fisioterapeuta","Traumato","153.181-78",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.of(1955, Month.DECEMBER, 10)));
+//        6- nome da especializacao vazio
+        fichasTeste.add(new FichaAvaliacao("José","Domingos","Fisioterapeuta","","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
     }
 
 
     @Test
     public void salvarFicha() throws CampoVazioException, DataConsultaException, CpfInvalidoException {
-//        Pacientes
-        FichaAvaliacao valido = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-        FichaAvaliacao fichaRepitida = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-        FichaAvaliacao nomePacienteVazio = new FichaAvaliacao("","Paulo","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-        FichaAvaliacao nomeProfissionalVazio = new FichaAvaliacao("Raul","","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-        FichaAvaliacao cpfVazio = new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now());
 //    	CT-008
-        Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
+        Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(0)));
 //      CT-009
-        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichaRepitida));
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(0)));
 //      CT-010
-        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(nomePacienteVazio));
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(1)));
 //      CT-010
-        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(nomeProfissionalVazio));
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(2)));
 //      CT-010
-        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(cpfVazio));
+        Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(3)));
 
     }
 
     @Test
     public void listarPorNomeProfissional(){
 //        CT-004
-        Assert.assertEquals("Operação Realizada com sucesso","Domingos",fichaAvaliacaoDAO.listarPorNomeDr(fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional()));
+        Assert.assertEquals("Operação Realizada com sucesso","Domingos",fichaAvaliacaoDAO.listarPorNomeDr(fichasTeste.get(0).getNomeDoProfissional()));
 //        CT-005
         Assert.assertEquals("Falha: Nome do Profissional inválido",6545,fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional());
 
+    }
+
+    @Test
+    public void listarPorEspecializacao(){
+//        CT-006
+        Assert.assertEquals("Traumato",fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(0).getEspecializacao()));
+//        CT-007
+        Assert.assertEquals("Falha: Campo obrigatório não preenchido","", fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(6).getEspecializacao()));
+//        CT-008
+        Assert.assertEquals("Falha: Campo obrigatório inválido",8456, fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(6).getEspecializacao()));
     }
     
     @Test
