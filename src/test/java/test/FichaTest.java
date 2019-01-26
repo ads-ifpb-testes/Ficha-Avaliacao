@@ -27,7 +27,7 @@ import static org.mockito.Mockito.when;
 public class FichaTest {
 
     private FichaAvaliacaoDAOImpl fichaAvaliacaoDAO;
-    private static List<FichaAvaliacao> fichas;
+    private static List<FichaAvaliacao> fichasTeste;
     
     @Mock
     private ProfissionalDAO profissionalDAO;
@@ -39,8 +39,18 @@ public class FichaTest {
     
     @Before
     public void adicionarFichas() {
-//    	Ficha válida
-    	fichaAvaliacaoDAO.salvarFicha(new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
+//    	0- Ficha válida
+    	fichasTeste.add(new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
+//    	1- nome do paciente vazio
+    	fichasTeste.add(new FichaAvaliacao("","Paulo","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
+//    	2- nome profissional vazio
+    	fichasTeste.add(new FichaAvaliacao("Raul","","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
+//    	3- cpf vazio
+    	fichasTeste.add(new FichaAvaliacao("Raul","Paulo","Fisioterapeuta","Traumato","",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
+//    	4- diagnostico vazio
+    	fichasTeste.add(new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now()));
+//    	5- campos preenchidos e CPF INVALIDO
+    	fichasTeste.add(new FichaAvaliacao("Carlos","Pedro","Fisioterapeuta","Traumato","153.181-78",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.of(1955, Month.DECEMBER, 10)));
     }
 
 
@@ -51,7 +61,7 @@ public class FichaTest {
         FichaAvaliacao fichaRepitida = new FichaAvaliacao("José","Domingos","Fisioterapeuta","Traumato","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao nomePacienteVazio = new FichaAvaliacao("","Paulo","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
         FichaAvaliacao nomeProfissionalVazio = new FichaAvaliacao("Raul","","Fisioterapeuta","Traumato","225.154.152-02",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-        FichaAvaliacao cpfVazio = new FichaAvaliacao("Raul","Paulo","Fisioterapeuta","Traumato","",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
+        FichaAvaliacao cpfVazio = new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now());
 //    	CT-008
         Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
 //      CT-009
@@ -67,22 +77,15 @@ public class FichaTest {
     
     @Test
     public void validarFicha() throws CpfInvalidoException, DataConsultaException, CampoVazioException {
-//    	Ficha Campos preenchidos e incorretos
-    	FichaAvaliacao carlos = new FichaAvaliacao("Carlos","Pedro","Fisioterapeuta","Traumato","153.181-78",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.of(1955, Month.DECEMBER, 10));
-//    	Campo obrigatório omitido
-    	FichaAvaliacao rian = new FichaAvaliacao("Rian","","Fisioterapeuta","Traumato","435.153.181-78",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now());
-    	FichaAvaliacao vazio = new FichaAvaliacao("","Alfonso","Pediatra","Imunologia","486.153.181-78",19,"Masculino","Gripe","","",LocalDate.now());
-    	FichaAvaliacao rita = new FichaAvaliacao("Rita","Alfonso","Pediatra","Imunologico","",19,"Feminino","Gripe","","",LocalDate.now());
-    	FichaAvaliacao flavia = new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now());
 //    	CT-016
-    	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(fichaAvaliacaoDAO.listarFichas().get(0)));
+    	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(0)));
 //    	CT-017
-    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(carlos));
+    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(5)));
 //    	CT-018
-    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(rian));
-    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(vazio));
-    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(rita));
-    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(flavia));
+    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(2)));
+    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(1)));
+    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(3)));
+    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(4)));
     }
     
     @Test
