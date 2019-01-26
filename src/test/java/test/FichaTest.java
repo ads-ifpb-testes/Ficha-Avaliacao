@@ -17,6 +17,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import Control.Agenda;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
@@ -29,13 +31,13 @@ public class FichaTest {
     private FichaAvaliacaoDAOImpl fichaAvaliacaoDAO;
     private static List<FichaAvaliacao> fichasTeste;
     
-    @Mock
-    private ProfissionalDAO profissionalDAO;
-
     public FichaTest(){
     	MockitoAnnotations.initMocks(this);
         fichaAvaliacaoDAO = new FichaAvaliacaoDAOImpl();
     }
+    
+    @Mock
+    private ProfissionalDAO profissionalDAO;    
     
     @Before
     public void adicionarFichas() {
@@ -81,7 +83,6 @@ public class FichaTest {
         Assert.assertEquals("Operação Realizada com sucesso","Domingos",fichaAvaliacaoDAO.listarPorNomeDr(fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional()));
 //        CT-005
         Assert.assertEquals("Falha: Nome do Profissional inválido",6545,fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional());
-
     }
     
     @Test
@@ -96,11 +97,4 @@ public class FichaTest {
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(3)));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(4)));
     }
-    
-    @Test
-    public void agendarConsulta() {
-//    	CT-022
-    	when(profissionalDAO.buscar("Paulo")).thenReturn(new Profissional("Paulo","034.342.523-24","Medicina","Pediatra",DIA.QUARTA,LocalTime.of(07, 00),LocalTime.of(11, 00)));
-    }
-
 }
