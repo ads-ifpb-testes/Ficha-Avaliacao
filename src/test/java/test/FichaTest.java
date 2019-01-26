@@ -75,10 +75,10 @@ public class FichaTest {
 
     @Test
     public void listarPorNomeProfissional(){
-//        CT-004
-        Assert.assertEquals("Operação Realizada com sucesso","Domingos",fichaAvaliacaoDAO.listarPorNomeDr(fichasTeste.get(0).getNomeDoProfissional()));
-//        CT-005
-        Assert.assertEquals("Falha: Nome do Profissional inválido",6545,fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional());
+//    CT-004
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorNomeDr("Domingos"));
+//    CT-005
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorNomeDr("64544"));
     }
 
     @Test
