@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/test/FichaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="80" column="60" selection-start-line="80" selection-start-column="60" selection-end-line="80" selection-end-column="60" />
+            <state relative-caret-position="285">
+              <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,24 +72,14 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Sistema de agendamento" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ficha-Avaliacao" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548533445641" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548534558350" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -174,7 +164,7 @@
       <workItem from="1548335475414" duration="3165000" />
       <workItem from="1548415123249" duration="6392000" />
       <workItem from="1548422527639" duration="939000" />
-      <workItem from="1548524740365" duration="8659000" />
+      <workItem from="1548524740365" duration="9657000" />
     </task>
     <task id="LOCAL-00001" summary="Modificando estrutura de armazenamento">
       <created>1548097242352</created>
@@ -225,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548527505373</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Teste - Melhorando método listarPorNomeProfissional">
+      <created>1548533525623</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548533525623</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -261,7 +258,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60290000" />
+    <option name="totallyTimeSpent" value="61288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -310,7 +307,8 @@
     <MESSAGE value="Teste - método de teste salvarFicha CT-008" />
     <MESSAGE value="Criação da Classe Modelo - Profissional" />
     <MESSAGE value="Teste - Teste do método listarPorNomeProfissional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teste - Teste do método listarPorNomeProfissional" />
+    <MESSAGE value="Teste - Melhorando método listarPorNomeProfissional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teste - Melhorando método listarPorNomeProfissional" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Connection/ConnectionFactory.java" />
@@ -501,8 +499,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test/FichaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="80" column="60" selection-start-line="80" selection-start-column="60" selection-end-line="80" selection-end-column="60" />
+        <state relative-caret-position="285">
+          <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

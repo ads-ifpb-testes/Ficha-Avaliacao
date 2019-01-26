@@ -84,11 +84,11 @@ public class FichaTest {
     @Test
     public void listarPorEspecializacao(){
 //        CT-006
-        Assert.assertEquals("Traumato",fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(0).getEspecializacao()));
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorEspecializacao("Traumato"));
 //        CT-007
-        Assert.assertEquals("Falha: Campo obrigatório não preenchido","", fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(6).getEspecializacao()));
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorEspecializacao(""));
 //        CT-008
-        Assert.assertEquals("Falha: Campo obrigatório inválido",8456, fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(6).getEspecializacao()));
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorEspecializacao("84530233"));
     }
     
     @Test
