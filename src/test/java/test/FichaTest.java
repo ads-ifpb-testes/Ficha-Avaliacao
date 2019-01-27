@@ -77,20 +77,20 @@ public class FichaTest {
 
     @Test
     public void listarPorNomeProfissional(){
-//        CT-004
-        Assert.assertEquals("Operação Realizada com sucesso","Domingos",fichaAvaliacaoDAO.listarPorNomeDr(fichasTeste.get(0).getNomeDoProfissional()));
-//        CT-005
-        Assert.assertEquals("Falha: Nome do Profissional inválido",6545,fichaAvaliacaoDAO.listarFichas().get(0).getNomeDoProfissional());
+//    CT-004
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorNomeDr("Domingos"));
+//    CT-005
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorNomeDr("64544"));
     }
 
     @Test
     public void listarPorEspecializacao(){
 //        CT-006
-        Assert.assertEquals("Traumato",fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(0).getEspecializacao()));
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorEspecializacao("Traumato"));
 //        CT-007
-        Assert.assertEquals("Falha: Campo obrigatório não preenchido","", fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(6).getEspecializacao()));
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorEspecializacao(""));
 //        CT-008
-        Assert.assertEquals("Falha: Campo obrigatório inválido",8456, fichaAvaliacaoDAO.listarPorEspecializacao(fichasTeste.get(6).getEspecializacao()));
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorEspecializacao("84530233"));
     }
     
     @Test
@@ -114,5 +114,25 @@ public class FichaTest {
     	Assert.assertEquals((Float) 0f,fichaAvaliacaoDAO.listarPorcetagemDiagnostico("Câncer de pele"));
 //    	CT-023
 //    	Assert.assertEquals(-1,fichaAvaliacaoDAO.listarPorcetagemDiagnostico(""));
+    }
+
+    @Test
+    public void listarPorGraduacao(){
+//      CT-012
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorGraduacao("Fisioterapeuta"));
+//      CT-013
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorGraduacao(""));
+//      CT-014
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorGraduacao("9243435"));
+    }
+
+    @Test
+    public void buscarByCpf(){
+//      CT-001
+        Assert.assertNotNull(fichaAvaliacaoDAO.buscarByCpf("111.111.111-11"));
+//      CT-002
+        Assert.assertNull(fichaAvaliacaoDAO.buscarByCpf("000000000"));
+//      CT-003
+        Assert.assertNull(fichaAvaliacaoDAO.buscarByCpf("222.222.222-22"));
     }
 }
