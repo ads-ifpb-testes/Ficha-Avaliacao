@@ -103,4 +103,17 @@ public class FichaTest {
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(3)));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(4)));
     }
+
+    @Test
+    public void listarPorGraduacao(){
+//      CT-012
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorGraduacao("Fisioterapeuta"));
+//      CT-013
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorGraduacao(""));
+//      CT-014
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorGraduacao("9243435"));
+    }
+
+   
+
 }
