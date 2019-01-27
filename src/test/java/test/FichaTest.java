@@ -90,6 +90,14 @@ public class FichaTest {
 //        CT-008
         Assert.assertNull(fichaAvaliacaoDAO.listarPorEspecializacao("84530233"));
     }
+
+    @Test
+    public void buscarPorData(){
+//        CT-015
+        Assert.assertNotNull(fichaAvaliacaoDAO.listarPorData(LocalDate.now(),LocalDate.now()));
+//        CT-016
+        Assert.assertNull(fichaAvaliacaoDAO.listarPorData(LocalDate.of(2019,01,28),LocalDate.of(2019,01,27)));
+    }
     
     @Test
     public void validarFicha() throws CpfInvalidoException, DataConsultaException, CampoVazioException {
