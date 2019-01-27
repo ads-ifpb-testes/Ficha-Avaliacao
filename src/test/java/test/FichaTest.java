@@ -114,6 +114,14 @@ public class FichaTest {
         Assert.assertNull(fichaAvaliacaoDAO.listarPorGraduacao("9243435"));
     }
 
-   
+    @Test
+    public void buscarByCpf(){
+//      CT-001
+        Assert.assertNotNull(fichaAvaliacaoDAO.buscarByCpf("111.111.111-11"));
+//      CT-002
+        Assert.assertNull(fichaAvaliacaoDAO.buscarByCpf("000000000"));
+//      CT-003
+        Assert.assertNull(fichaAvaliacaoDAO.buscarByCpf("222.222.222-22"));
+    }
 
 }
