@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import enumeration.DIA;
@@ -10,14 +11,16 @@ public class Consulta {
 	private LocalTime horaInicio;
 	private LocalTime horaFim;
 	private DIA diaConsulta;
+	private LocalDate data;
 	
 	public Consulta() {}
 
-	public Consulta(Profissional medico, LocalTime horaInicio, LocalTime horaFim, DIA diaConsulta) {
+	public Consulta(Profissional medico, LocalTime horaInicio, LocalTime horaFim, DIA diaConsulta, LocalDate data) {
 		this.medico = medico;
 		this.horaInicio = horaInicio;
 		this.horaFim = horaFim;
 		this.diaConsulta = diaConsulta;
+		this.data = data;
 	}
 
 	public Profissional getMedico() {
@@ -52,9 +55,21 @@ public class Consulta {
 		this.diaConsulta = diaConsulta;
 	}
 
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+
 	@Override
 	public String toString() {
 		return "Consulta [medico=" + medico + ", horaInicio=" + horaInicio + ", horaFim=" + horaFim + ", diaConsulta="
-				+ diaConsulta + "]";
-	}	
+				+ diaConsulta + ", data=" + data + "]";
+	}
+	
+	
+
+	
 }
