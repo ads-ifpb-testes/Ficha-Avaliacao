@@ -72,7 +72,6 @@ public class FichaTest {
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(2)));
 //      CT-01112
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(3)));
-
     }
 
     @Test
