@@ -55,7 +55,7 @@ public class FichaTest {
     	fichasTeste.add(new FichaAvaliacao("Flavia","Alfonso","Pediatra","Imunologico","765.656.651-89",19,"Feminino","","","",LocalDate.now()));
 //    	5- campos preenchidos e CPF INVALIDO
         fichasTeste.add(new FichaAvaliacao("Carlos","Pedro","Fisioterapeuta","Traumato","153.181-78",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.of(1955, Month.DECEMBER, 10)));
-//        6- nome da especializacao vazio
+//      6- nome da especializacao vazio
         fichasTeste.add(new FichaAvaliacao("José","Domingos","Fisioterapeuta","","111.111.111-11",19,"Masculino","Condomalacia Patelar","Dor Constante","Melhoria no Andar",LocalDate.now()));
     }
 
@@ -142,4 +142,15 @@ public class FichaTest {
 //      CT-003
         Assert.assertNull(fichaAvaliacaoDAO.buscarByCpf("222.222.222-22"));
     }
+<<<<<<< HEAD
+
+    @Test
+    public void removeByCpf(){
+
+        Assert.assertTrue(fichaAvaliacaoDAO.removeByCpf("111.111.111-11"));
+
+    }
+
+=======
+>>>>>>> b0f7b664badae468c85e2326aa851f581ba07103
 }
