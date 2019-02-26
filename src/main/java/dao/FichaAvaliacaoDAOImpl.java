@@ -108,14 +108,16 @@ public class FichaAvaliacaoDAOImpl implements FichaAvaliacaoDAO{
     }
 
     public boolean removeByCpf(String cpf){
-        if (fichas.isEmpty()){
+        if (fichas.isEmpty()) {
             return false;
         }
-        for (FichaAvaliacao ficha:fichas) {
-            if (ficha.getCpf().equals(cpf)){
-                return fichas.remove(ficha);
-            }
+        if(buscarByCpf(cpf)!=null) {
+            for (FichaAvaliacao ficha : fichas) {
+                if (ficha.getCpf().equals(cpf)) {
+                    return fichas.remove(ficha);
+                }
 
+            }
         }
         return false;
     }
