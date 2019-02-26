@@ -17,6 +17,8 @@ public interface FichaAvaliacaoDAO {
     public FichaAvaliacao buscarByCpf(String cpf);
 
     public List<FichaAvaliacao> listarPorNomeDr(String nomeDoProfissional);
+    
+    public Float listarPorcetagemDiagnostico(String diagnostico);
 
     public List<FichaAvaliacao> listarPorEspecializacao(String especializacao);
 

@@ -35,6 +35,8 @@ public class FichaTest {
     	MockitoAnnotations.initMocks(this);
         fichaAvaliacaoDAO = new FichaAvaliacaoDAOImpl();
     }
+    @Mock
+    private FichaAvaliacaoDAOImpl fichaDAO;
     
     @Mock
     private ProfissionalDAO profissionalDAO;    
@@ -60,15 +62,15 @@ public class FichaTest {
 
     @Test
     public void salvarFicha() throws CampoVazioException, DataConsultaException, CpfInvalidoException {
-//    	CT-008
+//    	CT-009
         Assert.assertTrue(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(0)));
-//      CT-009
+//      CT-010
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(0)));
-//      CT-010
+//      CT-011
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(1)));
-//      CT-010
+//      CT-011
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(2)));
-//      CT-010
+//      CT-01112
         Assert.assertFalse(fichaAvaliacaoDAO.salvarFicha(fichasTeste.get(3)));
     }
 
@@ -100,15 +102,25 @@ public class FichaTest {
     
     @Test
     public void validarFicha() throws CpfInvalidoException, DataConsultaException, CampoVazioException {
-//    	CT-016
-    	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(0)));
-//    	CT-017
-    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(5)));
 //    	CT-018
+    	Assert.assertTrue(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(0)));
+//    	CT-019
+    	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(5)));
+//    	CT-020
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(2)));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(1)));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(3)));
     	Assert.assertFalse(fichaAvaliacaoDAO.validarFicha(fichasTeste.get(4)));
+    }
+    
+    @Test
+    public void listarPorcentagemDiagnosticoTeste() {
+//    	CT-021
+    	Assert.assertNotEquals(0f, fichaAvaliacaoDAO.listarPorcetagemDiagnostico("Traumato"));
+//    	CT-022
+    	Assert.assertEquals((Float) 0f,fichaAvaliacaoDAO.listarPorcetagemDiagnostico("Câncer de pele"));
+//    	CT-023
+//    	Assert.assertEquals(-1,fichaAvaliacaoDAO.listarPorcetagemDiagnostico(""));
     }
 
     @Test
@@ -130,6 +142,7 @@ public class FichaTest {
 //      CT-003
         Assert.assertNull(fichaAvaliacaoDAO.buscarByCpf("222.222.222-22"));
     }
+<<<<<<< HEAD
 
     @Test
     public void removeByCpf(){
@@ -138,4 +151,6 @@ public class FichaTest {
 
     }
 
+=======
+>>>>>>> b0f7b664badae468c85e2326aa851f581ba07103
 }

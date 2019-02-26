@@ -152,4 +152,17 @@ public class FichaAvaliacaoDAOImpl implements FichaAvaliacaoDAO{
         }
         return false;
     }
+
+	@Override
+	public Float listarPorcetagemDiagnostico(String diagnostico) {
+		int quantidadeDiagnostico = 0;
+		for(FichaAvaliacao f : fichas ) {
+			if(f.getDiagnostico().equals(diagnostico)) {
+				quantidadeDiagnostico++;
+			}
+		}
+		if(quantidadeDiagnostico > 0)
+			return (float) (quantidadeDiagnostico / fichas.size());
+		else return 0f;
+	}
 }
