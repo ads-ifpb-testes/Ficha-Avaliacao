@@ -13,11 +13,15 @@ public class Agenda {
 	
 	private static List<Consulta> consultasAgendadas = null;
 
-	public static boolean agendarConsulta(Profissional medico, LocalTime inicioConsulta, LocalTime fimConsulta, DIA diaConsulta,LocalDate data) {
+	public static boolean agendarConsulta(Consulta novaConsulta) {
 		if(consultasAgendadas!=null) {
-			
+			List<Consulta> consultasDoMedico = buscarConsultasDoMedico(novaConsulta.getMedico().getNome(), novaConsulta.getData());
+			for(Consulta c : consultasDoMedico) {
+				if(c.getHoraInicio().isBefore(novaConsulta.getHoraFim()) || c.getHoraFim().isAfter(novaConsulta.getHoraInicio()))
+					return false;
+			}
 		}
-		return false;
+		return consultasAgendadas.add(novaConsulta);
 	}
 	
 	public static List<Consulta> buscarConsultasDoMedico(String nomeMedico,LocalDate data){
